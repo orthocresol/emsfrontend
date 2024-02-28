@@ -21,14 +21,14 @@ export default function Login() {
         console.log(res.status, res.data.token);
         const token = res.data.token;
         Cookies.set('token', token, {expires : 7, secure:  false})
-        if(res.status === 200) navigate('/admindashboard')
+        if(res.status === 200) navigate('/admindashboard', {replace : true})
       })
       .catch((error) => console.log(error));
     console.log(payload);
   };
   return (
     <>
-      <h1> Login </h1>
+      <h1> Admin Login </h1>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="email" name="email" />
         <br />

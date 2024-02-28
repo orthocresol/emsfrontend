@@ -7,14 +7,21 @@ import AdminDashboard from "./AdminDashboard";
 import UserDashboard from "./UserDashboard";
 import UpdateRoles from "./UpdateRoles";
 import UpdateLock from "./UpdateLock";
+import UserLogin from "./Userlogin";
+import EditUserProfile from "./EditUserProfile";
+import AdvisorInfo from "./AdvisorInfo";
 
 function App() {
   
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/userlogin" element={<UserLogin />} />
+        <Route path="/edituserprofile" element={<EditUserProfile />} />
+        <Route path="/advisorinfo" element={<AdvisorInfo />} />
+
         <Route path="/register" element={<Register />} />
         <Route path="/admindashboard" element={<AdminDashboard />} />
         <Route path="/userdashboard" element={<UserDashboard />} />

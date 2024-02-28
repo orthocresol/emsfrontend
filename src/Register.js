@@ -14,6 +14,7 @@ export default function Register() {
         name: payload.name,
         email: payload.email,
         password: payload.password,
+        phone: payload.phone
       })
       .then((res) => {
         console.log(res.status, res.data.token);
@@ -31,6 +32,8 @@ export default function Register() {
         <input type="text" placeholder="email" name="email" />
         <br />
         <input type="password" placeholder="password" name="password" />
+        <br />
+        <input type="text" placeholder="phone" name="phone" />
         <br />
         <button type="submit">Register</button>
       </form>

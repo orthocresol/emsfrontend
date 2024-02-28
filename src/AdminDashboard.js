@@ -1,7 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
-import UpdateRoles from "./UpdateRoles";
 import { useNavigate } from "react-router-dom";
 
 export default function AdminDashboard() {
@@ -14,8 +13,6 @@ export default function AdminDashboard() {
   useEffect(() => {
     loadusers();
   }, []);
-
-  
 
   const loadusers = () => {
     const token = Cookies.get("token");
@@ -58,8 +55,8 @@ export default function AdminDashboard() {
   };
   return (
     <>
-      <h1> Admin Dashboard: {} </h1>
-      <h1> List of Admin </h1>
+      <h1> Admin Dashboard {} </h1>
+      <h2> List of Admin </h2>
 
       <table>
         <thead>
@@ -67,6 +64,7 @@ export default function AdminDashboard() {
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Phone</th>
             <th>Role</th>
           </tr>
         </thead>
@@ -77,69 +75,8 @@ export default function AdminDashboard() {
                 <td>{val.id}</td>
                 <td>{val.name}</td>
                 <td>{val.email}</td>
+                <td>{val.phone}</td>
                 <td>{val.role}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-
-      <h1> List of students </h1>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Active Status</th>
-
-
-          </tr>
-        </thead>
-        <tbody>
-          {students.map((val) => {
-            return (
-              <tr>
-                <td>{val.id}</td>
-                <td>{val.name}</td>
-                <td>{val.email}</td>
-                <td>{val.role}</td>
-                <td>{val.lock}</td>
-
-                <td>
-                <button onClick={() => navigate("/updatelock", {state : {id: val.id, name: val.name, email: val.email}})}> Change Status</button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-
-      <h1> List of Teachers </h1>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Active Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {teachers.map((val) => {
-            return (
-              <tr>
-                <td>{val.id}</td>
-                <td>{val.name}</td>
-                <td>{val.email}</td>
-                <td>{val.role}</td>
-                <td>{val.lock}</td>
-
-                <td>
-                  <button onClick={() => navigate("/updatelock", {state : {id: val.id, name: val.name, email: val.email}})}> Change Status</button>
-                </td>
               </tr>
             );
           })}
@@ -150,7 +87,7 @@ export default function AdminDashboard() {
         <div></div>
       ) : (
         <div>
-          <h1> List of Users </h1>
+          <h2> List of Users </h2>
           <table>
             <thead>
               <tr>
@@ -169,10 +106,20 @@ export default function AdminDashboard() {
                     <td>{val.email}</td>
                     <td>{val.role}</td>
                     <td>
-                      <button onClick={() => navigate("/updateroles", {state : {id: val.id, name: val.name, email: val.email}}) } value={val.id}>
+                      <button
+                        onClick={() =>
+                          navigate("/updateroles", {
+                            state: {
+                              id: val.id,
+                              name: val.name,
+                              email: val.email,
+                            },
+                          })
+                        }
+                        value={val.id}
+                      >
                         Update Role
                       </button>
-
                     </td>
                   </tr>
                 );
@@ -181,6 +128,115 @@ export default function AdminDashboard() {
           </table>
         </div>
       )}
+      {!students.length ? (
+        <div></div>
+      ) : (
+        <div>
+          <h2> List of Students </h2>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Dept</th>
+                <th>Student ID</th>
+                <th>Batch</th>
+                <th>Active Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {students.map((val) => {
+                return (
+                  <tr>
+                    <td>{val.id}</td>
+                    <td>{val.name}</td>
+                    <td>{val.email}</td>
+                    <td>{val.phone}</td>
+                    <td>{val.dept}</td>
+                    <td>{val.studentID}</td>
+                    <td>{val.batch}</td>
+                    <td>{val.lock}</td>
+
+                    <td>
+                      <button
+                        onClick={() =>
+                          navigate("/updatelock", {
+                            state: {
+                              id: val.id,
+                              name: val.name,
+                              email: val.email,
+                            },
+                          })
+                        }
+                      >
+                        {" "}
+                        Change Status
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {!teachers.length ? (
+        <div></div>
+      ) : (
+        <div>
+          <h2> List of Teachers </h2>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Faculty</th>
+                <th>Designation</th>
+                <th>Active Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {teachers.map((val) => {
+                return (
+                  <tr>
+                    <td>{val.id}</td>
+                    <td>{val.name}</td>
+                    <td>{val.email}</td>
+                    <td>{val.phone}</td>
+                    <td>{val.faculty}</td>
+                    <td>{val.designation}</td>
+                    <td>{val.lock}</td>
+
+                    <td>
+                      <button
+                        onClick={() =>
+                          navigate("/updatelock", {
+                            state: {
+                              id: val.id,
+                              name: val.name,
+                              email: val.email,
+                            },
+                          })
+                        }
+                      >
+                        {" "}
+                        Change Status
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      
     </>
   );
 }
