@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function AdvisorInfo() {
   const navigate = useNavigate();
   const [teachers, setTeachers] = useState([]);
-
+  const [advisor, setAdvisor] = useState({});
   
 
   const requestTeacher = (e) => {
@@ -31,7 +31,22 @@ export default function AdvisorInfo() {
 
   useEffect(() => {
     loadInfo();
+    findAdvisor();
   }, []);
+
+  const findAdvisor  = () => {
+    const token = Cookies.get("token");
+    const email = Cookies.get('email');
+    axios
+      .get(`http://localhost:8080/api/v1/advisor/findadvisor/${email}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => {
+        setAdvisor(res.data);
+      })
+      .catch((error) => console.log(error));
+  }
+
   const loadInfo = () => {
     const token = Cookies.get("token");
     const email = Cookies.get('email');
@@ -47,7 +62,7 @@ export default function AdvisorInfo() {
   return (
     <>
       <h1> Advisor Info</h1>
-      <h2>Your current advisor is </h2>
+      <h2>Your current advisor is {advisor?.name}, {advisor?.designation}, {advisor?.faculty}</h2>
       <h2> List of available teachers</h2>
       <table>
         <thead>
