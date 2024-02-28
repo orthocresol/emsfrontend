@@ -10,6 +10,11 @@ import UpdateLock from "./UpdateLock";
 import UserLogin from "./Userlogin";
 import EditUserProfile from "./EditUserProfile";
 import AdvisorInfo from "./AdvisorInfo";
+import RequestedTeachers from "./RequestedTeachers";
+import TeacherDashboard from "./TeacherDashboard";
+import EditUserProfileTeacher from "./EditUserProfileTeacher";
+import AdvisorInfoTeacher from "./AdvisorInfoTeacher";
+import EnrolledStudents from "./EnrolledStudents";
 
 function App() {
   
@@ -20,7 +25,13 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/userlogin" element={<UserLogin />} />
         <Route path="/edituserprofile" element={<EditUserProfile />} />
+        <Route path="/edituserprofileteacher" element={<EditUserProfileTeacher />} />
         <Route path="/advisorinfo" element={<AdvisorInfo />} />
+        <Route path="/advisorinfoteacher" element={<AdvisorInfoTeacher />} />
+        <Route path="/requestedteachers" element={<RequestedTeachers />} />
+        <Route path="/teacherdashboard" element={<TeacherDashboard />} />
+        <Route path="/enrolledstudents" element={<EnrolledStudents />} />
+
 
         <Route path="/register" element={<Register />} />
         <Route path="/admindashboard" element={<AdminDashboard />} />

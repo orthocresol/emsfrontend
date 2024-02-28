@@ -26,15 +26,16 @@ export default function UserDashboard() {
       .catch((error) => console.log(error));
   };
   return <>
+  {userinfo?.role === "STUDENT" ? "" : navigate("/teacherdashboard")}
 
   <h1>Profile</h1>
     <h3>Name: {userinfo?.name}</h3>
     <h3>Email: {userinfo?.email}</h3>
     <h3>Phone: {userinfo?.phone}</h3>
 
-    {0 === 1 ? <div></div> : <h3>Dept: {userinfo?.dept}</h3>}
-    {0 === 1 ? <div></div> : <h3>Student ID: {userinfo?.studentID}</h3>}
-    {0 === 1 ? <div></div> : <h3>Batch: {userinfo?.batch}</h3>}
+    {userinfo?.dept === "" ? <div></div> : <h3>Dept: {userinfo?.dept}</h3>}
+    {userinfo?.studentID === ""? <div></div> : <h3>Student ID: {userinfo?.studentID}</h3>}
+    {userinfo?.batch === "" ? <div></div> : <h3>Batch: {userinfo?.batch}</h3>}
 
 
     <h3>Role: {userinfo?.role}</h3>

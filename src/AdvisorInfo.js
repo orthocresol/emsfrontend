@@ -1,25 +1,13 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function AdvisorInfo() {
+  const navigate = useNavigate();
   const [teachers, setTeachers] = useState([]);
-  const [requestedTeacher, setRequestedTeacher] = useState([]);
 
-  useEffect(() => {
-    const token = Cookies.get("token");
-    const email = Cookies.get("email");
-
-    axios
-      .get(`http://localhost:8080/api/v1/advisor/sentrequest/${email}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((res) => {
-        setRequestedTeacher(res.data);
-        console.log(res);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  
 
   const requestTeacher = (e) => {
     const token = Cookies.get("token");
@@ -37,7 +25,7 @@ export default function AdvisorInfo() {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then(() => {})
+      .then(() => loadInfo())
       .catch((error) => console.log(error));
   };
 
@@ -46,8 +34,9 @@ export default function AdvisorInfo() {
   }, []);
   const loadInfo = () => {
     const token = Cookies.get("token");
+    const email = Cookies.get('email');
     axios
-      .get("http://localhost:8080/api/v1/admin/getallteachers", {
+      .get(`http://localhost:8080/api/v1/advisor/getavailableteachers/${email}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -95,42 +84,9 @@ export default function AdvisorInfo() {
         </tbody>
       </table>
 
-      <h2>List of teachers you sent request</h2>
-
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Faculty</th>
-            <th>Designation</th>
-            <th>Active Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {requestedTeacher.map((val) => {
-            return (
-              <tr>
-                <td>{val.id}</td>
-                <td>{val.name}</td>
-                <td>{val.email}</td>
-                <td>{val.phone}</td>
-                <td>{val.faculty}</td>
-                <td>{val.designation}</td>
-                <td>{val.lock}</td>
-
-                <td>
-                  <button value={val.email} onClick={requestTeacher}>
-                    Send Request
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <button onClick={() => navigate("/requestedteachers")}>
+        Show list of teachers you sent request{" "}
+      </button>
     </>
   );
 }
