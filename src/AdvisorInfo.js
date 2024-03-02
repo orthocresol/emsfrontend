@@ -75,6 +75,8 @@ export default function AdvisorInfo() {
             <th>Faculty</th>
             <th>Designation</th>
             <th>Active Status</th>
+            <th>Action</th>
+
           </tr>
         </thead>
         <tbody>

@@ -82,6 +82,8 @@ export default function AdvisorInfoTeacher() {
             <th>Student ID</th>
             <th>Batch</th>
             <th>Active Status</th>
+            <th>Action</th>
+
           </tr>
         </thead>
         <tbody>
@@ -98,10 +100,10 @@ export default function AdvisorInfoTeacher() {
                 <td>{val.lock}</td>
 
                 <td>
-                  <button value={val.email} onClick={acceptRequest}>
+                  <button className="button" value={val.email} onClick={acceptRequest}>
                     Accept Request
                   </button>
-                  <button value={val.email} onClick={rejectRequest}>
+                  <button className="button" value={val.email} onClick={rejectRequest}>
                     Reject Request
                   </button>
                 </td>

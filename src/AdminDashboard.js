@@ -61,6 +61,7 @@ export default function AdminDashboard() {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -72,7 +73,7 @@ export default function AdminDashboard() {
                     <td>{val.email}</td>
                     <td>{val.role}</td>
                     <td>
-                      <button
+                      <button className="button"
                         onClick={() =>
                           navigate("/updateroles", {
                             state: {
@@ -110,6 +111,8 @@ export default function AdminDashboard() {
                 <th>Student ID</th>
                 <th>Batch</th>
                 <th>Active Status</th>
+                <th>Action</th>
+
               </tr>
             </thead>
             <tbody>
@@ -126,7 +129,7 @@ export default function AdminDashboard() {
                     <td>{val.lock}</td>
 
                     <td>
-                      <button
+                      <button className="button"
                         onClick={() =>
                           navigate("/updatelock", {
                             state: {
@@ -164,6 +167,8 @@ export default function AdminDashboard() {
                 <th>Faculty</th>
                 <th>Designation</th>
                 <th>Active Status</th>
+                <th>Action</th>
+
               </tr>
             </thead>
             <tbody>
@@ -179,7 +184,7 @@ export default function AdminDashboard() {
                     <td>{val.lock}</td>
 
                     <td>
-                      <button
+                      <button className="button"
                         onClick={() =>
                           navigate("/updatelock", {
                             state: {
