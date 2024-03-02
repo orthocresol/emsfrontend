@@ -10,11 +10,16 @@ export default function UpdateRoles() {
   const updateRoleTeacher = () => {
     const token = Cookies.get("token");
     axios
-      .get(`http://localhost:8080/api/v1/demo/updateroleteacher/${location.state.id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .put(
+        `http://localhost:8080/api/v1/users/${location.state.id}`,
+        {
+          action: "update-role-to-teacher",
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((res) => {
-
         navigate("/admindashboard", -1);
       })
       .catch((error) => console.log(error));
@@ -23,11 +28,16 @@ export default function UpdateRoles() {
   const updateRoleStudent = () => {
     const token = Cookies.get("token");
     axios
-      .get(`http://localhost:8080/api/v1/demo/updaterolestudent/${location.state.id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .put(
+        `http://localhost:8080/api/v1/users/${location.state.id}`,
+        {
+          action: "update-role-to-student",
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((res) => {
-
         navigate("/admindashboard", -1);
       })
       .catch((error) => console.log(error));
@@ -36,13 +46,11 @@ export default function UpdateRoles() {
   return (
     <>
       <h1>Update Roles</h1>
-      <p>Name: {location.state.name}</p> <br/>
-      <p>Name: {location.state.email}</p> <br/>
+      <p>Name: {location.state.name}</p> <br />
+      <p>Name: {location.state.email}</p> <br />
       <p>Name: {location.state.id}</p> <br />
-
       <button onClick={updateRoleTeacher}>Update to Teacher Role</button>
       <button onClick={updateRoleStudent}>Update to Student Role</button>
-
     </>
   );
 }

@@ -10,7 +10,7 @@ export default function Register() {
     const payload = Object.fromEntries(formData);
 
     axios
-      .post("http://localhost:8080/api/v1/auth/register", {
+      .post("http://localhost:8080/api/v1/auth/registration", {
         name: payload.name,
         email: payload.email,
         password: payload.password,

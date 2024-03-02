@@ -15,7 +15,7 @@ export default function AdvisorInfo() {
     console.log(e.target.value);
     axios
       .post(
-        "http://localhost:8080/api/v1/advisor/sendrequest",
+        `http://localhost:8080/api/v1/students/${email}/available-teachers/${email}`,
         {
           id: 1,
           emailTeacher: e.target.value,
@@ -38,7 +38,7 @@ export default function AdvisorInfo() {
     const token = Cookies.get("token");
     const email = Cookies.get('email');
     axios
-      .get(`http://localhost:8080/api/v1/advisor/findadvisor/${email}`, {
+      .get(`http://localhost:8080/api/v1/students/${email}/advisor`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -51,7 +51,7 @@ export default function AdvisorInfo() {
     const token = Cookies.get("token");
     const email = Cookies.get('email');
     axios
-      .get(`http://localhost:8080/api/v1/advisor/getavailableteachers/${email}`, {
+      .get(`http://localhost:8080/api/v1/students/${email}/available-teachers`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {

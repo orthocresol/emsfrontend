@@ -16,7 +16,7 @@ export default function TeacherDashboard() {
 
     console.log(email);
     axios
-      .get(`http://localhost:8080/api/v1/user/info/${email}`, {
+      .get(`http://localhost:8080/api/v1/teachers/${email}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {

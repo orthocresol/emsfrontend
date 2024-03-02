@@ -14,8 +14,8 @@ export default function EditUserProfileTeacher() {
     const payload = Object.fromEntries(formData);
 
     axios
-      .post(
-        "http://localhost:8080/api/v1/user/updateprofileteacher",
+      .put(
+        `http://localhost:8080/api/v1/teachers/${email}`,
         {
           name: payload.name,
           email: email,

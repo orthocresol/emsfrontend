@@ -13,7 +13,7 @@ export default function AdvisorInfoTeacher() {
     console.log(e.target.value);
     axios
       .post(
-        "http://localhost:8080/api/v1/advisor/acceptrequest",
+        `http://localhost:8080/api/v1/teachers/${email}/requested-students/${email}`,
         {
           id: 1,
           emailTeacher: email,
@@ -32,8 +32,8 @@ export default function AdvisorInfoTeacher() {
     const email = Cookies.get("email");
     console.log(e.target.value);
     axios
-      .post(
-        "http://localhost:8080/api/v1/advisor/rejectrequest",
+      .put(
+        `http://localhost:8080/api/v1/teachers/${email}/requested-students/${email}`,
         {
           id: 1,
           emailTeacher: email,
@@ -56,7 +56,7 @@ export default function AdvisorInfoTeacher() {
     const email = Cookies.get("email");
     axios
       .get(
-        `http://localhost:8080/api/v1/advisor/getrequestedstudents/${email}`,
+        `http://localhost:8080/api/v1/teachers/${email}/requested-students`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

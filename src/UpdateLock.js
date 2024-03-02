@@ -10,7 +10,9 @@ export default function UpdateLock() {
   const lockUser = () => {
     const token = Cookies.get("token");
     axios
-      .get(`http://localhost:8080/api/v1/admin/lock/${location.state.id}`, {
+      .put(`http://localhost:8080/api/v1/users/${location.state.id}`, {
+        action : "lock"
+      }, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -23,7 +25,9 @@ export default function UpdateLock() {
   const unlockUser = () => {
     const token = Cookies.get("token");
     axios
-      .get(`http://localhost:8080/api/v1/admin/unlock/${location.state.id}`, {
+      .put(`http://localhost:8080/api/v1/users/${location.state.id}`, {
+        action : "unlock"
+      }, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {

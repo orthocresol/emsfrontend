@@ -7,7 +7,6 @@ export default function AdminDashboard() {
   const [users, setUsers] = useState([]);
   const [students, setStudents] = useState([]);
   const [teachers, setTeachers] = useState([]);
-  const [admins, setAdmins] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,7 +16,7 @@ export default function AdminDashboard() {
   const loadusers = () => {
     const token = Cookies.get("token");
     axios
-      .get("http://localhost:8080/api/v1/admin/getallusers", {
+      .get("http://localhost:8080/api/v1/users", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -26,7 +25,7 @@ export default function AdminDashboard() {
       .catch((error) => console.log(error));
 
     axios
-      .get("http://localhost:8080/api/v1/admin/getallteachers", {
+      .get("http://localhost:8080/api/v1/teachers", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -35,7 +34,7 @@ export default function AdminDashboard() {
       .catch((error) => console.log(error));
 
     axios
-      .get("http://localhost:8080/api/v1/admin/getallstudents", {
+      .get("http://localhost:8080/api/v1/students", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -44,44 +43,10 @@ export default function AdminDashboard() {
       })
       .catch((error) => console.log(error));
 
-    axios
-      .get("http://localhost:8080/api/v1/admin/getalladmins", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((res) => {
-        setAdmins(res.data);
-      })
-      .catch((error) => console.log(error));
   };
   return (
     <>
       <h1> Admin Dashboard {} </h1>
-      <h2> List of Admin </h2>
-
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          {admins.map((val) => {
-            return (
-              <tr>
-                <td>{val.id}</td>
-                <td>{val.name}</td>
-                <td>{val.email}</td>
-                <td>{val.phone}</td>
-                <td>{val.role}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
 
       {users.length === 0 ? (
         <div></div>

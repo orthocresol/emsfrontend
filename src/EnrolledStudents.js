@@ -13,7 +13,7 @@ export default function EnrolledStudents() {
     const email = Cookies.get("email");
 
     axios
-      .get(`http://localhost:8080/api/v1/advisor/enrolledstudents/${email}`, {
+      .get(`http://localhost:8080/api/v1/teachers/${email}/enrolled-students`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
