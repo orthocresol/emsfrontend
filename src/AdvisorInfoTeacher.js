@@ -48,6 +48,8 @@ export default function AdvisorInfoTeacher() {
   };
 
   useEffect(() => {
+    document.title = "Advisor Information"
+
     loadInfo();
   }, []);
 
@@ -69,7 +71,7 @@ export default function AdvisorInfoTeacher() {
   return (
     <>
       <h1>List of request</h1>
-      <table>
+      <table className="center-table">
         <thead>
           <tr>
             <th>ID</th>
@@ -109,7 +111,7 @@ export default function AdvisorInfoTeacher() {
         </tbody>
       </table>
 
-      <button onClick={() => navigate("/enrolledstudents")}>
+      <button className="button" onClick={() => navigate("/enrolledstudents")}>
         Enrolled Students
       </button>
     </>

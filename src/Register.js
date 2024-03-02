@@ -1,8 +1,13 @@
 import axios from "axios";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Registration";
+  });
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -14,7 +19,7 @@ export default function Register() {
         name: payload.name,
         email: payload.email,
         password: payload.password,
-        phone: payload.phone
+        phone: payload.phone,
       })
       .then((res) => {
         console.log(res.status, res.data.token);
@@ -27,17 +32,17 @@ export default function Register() {
     <>
       <h1> Register </h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="name" name="name" />
+        <input className="input-field" type="text" placeholder="name" name="name" />
         <br />
-        <input type="text" placeholder="email" name="email" />
+        <input className="input-field" type="text" placeholder="email" name="email" />
         <br />
-        <input type="password" placeholder="password" name="password" />
+        <input className="input-field" type="password" placeholder="password" name="password" />
         <br />
-        <input type="text" placeholder="phone" name="phone" />
+        <input className="input-field" type="text" placeholder="phone" name="phone" />
         <br />
-        <button type="submit">Register</button>
+        <button className="button" type="submit">Register</button>
       </form>
-      <button onClick={() => navigate(-1)}>Go Back</button>
+      <button className="button" onClick={() => navigate(-1)}>Go Back</button>
     </>
   );
 }

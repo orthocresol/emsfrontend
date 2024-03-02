@@ -1,11 +1,16 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function UpdateRoles() {
   const location = useLocation();
   const navigate = useNavigate();
   console.log(location);
+
+  useEffect(() => {
+    document.title = "Update Roles"
+  })
 
   const updateRoleTeacher = () => {
     const token = Cookies.get("token");
@@ -49,8 +54,8 @@ export default function UpdateRoles() {
       <p>Name: {location.state.name}</p> <br />
       <p>Name: {location.state.email}</p> <br />
       <p>Name: {location.state.id}</p> <br />
-      <button onClick={updateRoleTeacher}>Update to Teacher Role</button>
-      <button onClick={updateRoleStudent}>Update to Student Role</button>
+      <button className="button" onClick={updateRoleTeacher}>Update to Teacher Role</button>
+      <button className="button" onClick={updateRoleStudent}>Update to Student Role</button>
     </>
   );
 }

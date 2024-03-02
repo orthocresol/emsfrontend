@@ -7,6 +7,7 @@ export default function TeacherDashboard() {
   const navigate = useNavigate();
   const [userinfo, setUserInfo] = useState({});
   useEffect(() => {
+    document.title = "Dashboard"
     loadInfo();
   }, []);
 
@@ -45,10 +46,10 @@ export default function TeacherDashboard() {
 
       <h3>Role: {userinfo?.role}</h3>
 
-      <button onClick={() => navigate("/edituserprofileteacher")}>
+      <button className="button" onClick={() => navigate("/edituserprofileteacher")}>
         Edit your profile
       </button>
-      <button onClick={() => navigate("/advisorinfoteacher")}>
+      <button className="button" onClick={() => navigate("/advisorinfoteacher")}>
         Advisor Information
       </button>
     </>

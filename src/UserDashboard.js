@@ -7,6 +7,7 @@ export default function UserDashboard() {
     const navigate = useNavigate()
     const [userinfo, setUserInfo]=useState({})
   useEffect(() => {
+    document.title = "Dashboard"
     loadInfo();
   }, []);
 
@@ -40,8 +41,8 @@ export default function UserDashboard() {
 
     <h3>Role: {userinfo?.role}</h3>
 
-    <button onClick={() => navigate("/edituserprofile")}>Edit your profile</button>
-    <button onClick={() => navigate("/advisorinfo")}>Advisor Information</button>
+    <button className="button" onClick={() => navigate("/edituserprofile")}>Edit your profile</button>
+    <button className="button" onClick={() => navigate("/advisorinfo")}>Advisor Information</button>
 
 
   </>;

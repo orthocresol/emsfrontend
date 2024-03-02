@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 export default function EnrolledStudents() {
   const [enrolledStudents, setEnrolledStudents] = useState([]);
   useEffect(() => {
+    document.title = "Enrolled students"
     loadInfo();
   }, []);
 
@@ -26,7 +27,7 @@ export default function EnrolledStudents() {
     <>
       <h1>List of enrolled students</h1>
 
-      <table>
+      <table className="center-table">
         <thead>
           <tr>
             <th>ID</th>

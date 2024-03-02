@@ -30,6 +30,7 @@ export default function AdvisorInfo() {
   };
 
   useEffect(() => {
+    document.title = "Advisor Information"
     loadInfo();
     findAdvisor();
   }, []);
@@ -64,7 +65,7 @@ export default function AdvisorInfo() {
       <h1> Advisor Info</h1>
       <h2>Your current advisor is {advisor?.name}, {advisor?.designation}, {advisor?.faculty}</h2>
       <h2> List of available teachers</h2>
-      <table>
+      <table className="center-table">
         <thead>
           <tr>
             <th>ID</th>
@@ -89,7 +90,7 @@ export default function AdvisorInfo() {
                 <td>{val.lock}</td>
 
                 <td>
-                  <button value={val.email} onClick={requestTeacher}>
+                  <button className="button" value={val.email} onClick={requestTeacher}>
                     Send Request
                   </button>
                 </td>
@@ -99,7 +100,7 @@ export default function AdvisorInfo() {
         </tbody>
       </table>
 
-      <button onClick={() => navigate("/requestedteachers")}>
+      <button className="button" onClick={() => navigate("/requestedteachers")}>
         Show list of teachers you sent request{" "}
       </button>
     </>

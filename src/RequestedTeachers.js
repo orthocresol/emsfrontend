@@ -6,11 +6,13 @@ export default function RequestedTeachers() {
   const [requestedTeacher, setRequestedTeacher] = useState([]);
 
   useEffect(() => {
+    document.title = "Requested Teachers"
+
     const token = Cookies.get("token");
     const email = Cookies.get("email");
 
     axios
-      .get(`http://localhost:8080/api/v1/advisor/sentrequest/${email}`, {
+      .get(`http://localhost:8080/api/v1/students/${email}/requested-teachers`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -23,7 +25,7 @@ export default function RequestedTeachers() {
     <>
       <h2>List of teachers you sent request</h2>
 
-      <table>
+      <table className="center-table">
         <thead>
           <tr>
             <th>ID</th>

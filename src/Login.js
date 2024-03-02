@@ -1,9 +1,14 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie"; 
+import { useEffect } from "react";
 
 export default function Login() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Login"
+})
 
 
   const handleSubmit = (e) => {
@@ -30,15 +35,15 @@ export default function Login() {
     <>
       <h1> Admin Login </h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="email" name="email" />
+        <input className="input-field" type="text" placeholder="email" name="email" />
         <br />
-        <input type="password" placeholder="password" name="password" />
+        <input className="input-field" type="password" placeholder="password" name="password" />
         <br />
-        <button type="submit">Login</button>
+        <button className="button" type="submit">Login</button>
       </form>
 
       <h3> New User? Register here</h3>
-      <button onClick={() => navigate("/register")}>Register</button>
+      <button className="button" onClick={() => navigate("/register")}>Register</button>
     </>
   );
 }

@@ -1,9 +1,14 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function EditUserProfile() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Update profile"
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,17 +43,17 @@ export default function EditUserProfile() {
     <>
       <h1>Edit Your Profile</h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="name" name="name" />
+        <input className="input-field" type="text" placeholder="name" name="name" />
         <br />
-        <input type="text" placeholder="phone" name="phone" />
+        <input className="input-field" type="text" placeholder="phone" name="phone" />
         <br />
-        <input type="text" placeholder="dept" name="dept" />
+        <input className="input-field" type="text" placeholder="dept" name="dept" />
         <br />
-        <input type="text" placeholder="studentID" name="studentID" />
+        <input className="input-field" type="text" placeholder="studentID" name="studentID" />
         <br />
-        <input type="text" placeholder="batch" name="batch" />
+        <input className="input-field" type="text" placeholder="batch" name="batch" />
         <br />
-        <button type="submit">Update</button>
+        <button className="button" type="submit">Update</button>
       </form>
     </>
   );

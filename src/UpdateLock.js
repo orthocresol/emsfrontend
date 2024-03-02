@@ -1,11 +1,16 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function UpdateLock() {
   const location = useLocation();
   const navigate = useNavigate();
   console.log(location);
+
+  useEffect(() => {
+    document.title = "Update Lock"
+  })
 
   const lockUser = () => {
     const token = Cookies.get("token");
@@ -44,8 +49,8 @@ export default function UpdateLock() {
       <p>Name: {location.state.email}</p> <br/>
       <p>Name: {location.state.id}</p> <br />
 
-      <button onClick={lockUser}>Lock User</button>
-      <button onClick={unlockUser}>Unlock User</button>
+      <button className="button" onClick={lockUser}>Lock User</button>
+      <button className="button" onClick={unlockUser}>Unlock User</button>
 
     </>
   );

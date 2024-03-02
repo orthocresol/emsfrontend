@@ -10,6 +10,7 @@ export default function AdminDashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    document.title = "Dashboard"
     loadusers();
   }, []);
 
@@ -53,7 +54,7 @@ export default function AdminDashboard() {
       ) : (
         <div>
           <h2> List of Users </h2>
-          <table>
+          <table className="center-table">
             <thead>
               <tr>
                 <th>ID</th>
@@ -98,7 +99,7 @@ export default function AdminDashboard() {
       ) : (
         <div>
           <h2> List of Students </h2>
-          <table>
+          <table className="center-table">
             <thead>
               <tr>
                 <th>ID</th>
@@ -153,7 +154,7 @@ export default function AdminDashboard() {
       ) : (
         <div>
           <h2> List of Teachers </h2>
-          <table>
+          <table className="center-table">
             <thead>
               <tr>
                 <th>ID</th>
