@@ -15,6 +15,7 @@ import TeacherDashboard from "./TeacherDashboard";
 import EditUserProfileTeacher from "./EditUserProfileTeacher";
 import AdvisorInfoTeacher from "./AdvisorInfoTeacher";
 import EnrolledStudents from "./EnrolledStudents";
+import Redirect from "./Redirect";
 
 function App() {
   
@@ -36,6 +37,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/admindashboard" element={<AdminDashboard />} />
         <Route path="/userdashboard" element={<UserDashboard />} />
+        <Route path="/redirect" element={<Redirect />} />
         <Route path="/updateroles" element={<UpdateRoles />} />
         <Route path="/updatelock" element={<UpdateLock />} />
 

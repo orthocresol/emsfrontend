@@ -4,18 +4,18 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function UserDashboard() {
-    const navigate = useNavigate()
-    const [userinfo, setUserInfo]=useState({})
+  const navigate = useNavigate();
+  const [userinfo, setUserInfo] = useState({});
   useEffect(() => {
-    document.title = "Dashboard"
+    document.title = "Dashboard";
     loadInfo();
   }, []);
 
   const loadInfo = () => {
     const email = Cookies.get("email");
-    const token = Cookies.get('token');
+    const token = Cookies.get("token");
 
-    console.log(email)
+    console.log(email);
     axios
       .get(`http://localhost:8080/api/v1/students/${email}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -26,24 +26,30 @@ export default function UserDashboard() {
       })
       .catch((error) => console.log(error));
   };
-  return <>
-  {userinfo?.role === "STUDENT" ? "" : navigate("/teacherdashboard")}
+  return (
+    <>
 
-  <h1>Profile</h1>
-    <h3>Name: {userinfo?.name}</h3>
-    <h3>Email: {userinfo?.email}</h3>
-    <h3>Phone: {userinfo?.phone}</h3>
+      <h1>Profile</h1>
+      <h3>Name: {userinfo?.name}</h3>
+      <h3>Email: {userinfo?.email}</h3>
+      <h3>Phone: {userinfo?.phone}</h3>
 
-    {userinfo?.dept === "" ? <div></div> : <h3>Dept: {userinfo?.dept}</h3>}
-    {userinfo?.studentID === ""? <div></div> : <h3>Student ID: {userinfo?.studentID}</h3>}
-    {userinfo?.batch === "" ? <div></div> : <h3>Batch: {userinfo?.batch}</h3>}
+      {userinfo?.dept === "" ? <div></div> : <h3>Dept: {userinfo?.dept}</h3>}
+      {userinfo?.studentID === "" ? (
+        <div></div>
+      ) : (
+        <h3>Student ID: {userinfo?.studentID}</h3>
+      )}
+      {userinfo?.batch === "" ? <div></div> : <h3>Batch: {userinfo?.batch}</h3>}
 
+      <h3>Role: {userinfo?.role}</h3>
 
-    <h3>Role: {userinfo?.role}</h3>
-
-    <button className="button" onClick={() => navigate("/edituserprofile")}>Edit your profile</button>
-    <button className="button" onClick={() => navigate("/advisorinfo")}>Advisor Information</button>
-
-
-  </>;
+      <button className="button" onClick={() => navigate("/edituserprofile")}>
+        Edit your profile
+      </button>
+      <button className="button" onClick={() => navigate("/advisorinfo")}>
+        Advisor Information
+      </button>
+    </>
+  );
 }

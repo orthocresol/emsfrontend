@@ -45,7 +45,11 @@ export default function AdvisorInfo() {
       .then((res) => {
         setAdvisor(res.data);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {console.log(error)
+        setAdvisor({name: "Missing!"})
+      }
+      
+      );
   }
 
   const loadInfo = () => {
@@ -63,7 +67,7 @@ export default function AdvisorInfo() {
   return (
     <>
       <h1> Advisor Info</h1>
-      <h2>Your current advisor is {advisor?.name}, {advisor?.designation}, {advisor?.faculty}</h2>
+      <h2>Your current advisor is {advisor?.name} {advisor?.designation} {advisor?.faculty}</h2>
       <h2> List of available teachers</h2>
       <table className="center-table">
         <thead>

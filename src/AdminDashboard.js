@@ -61,6 +61,8 @@ export default function AdminDashboard() {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>
+                <th>Phone</th>
+                <th>Active Status</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -72,6 +74,8 @@ export default function AdminDashboard() {
                     <td>{val.name}</td>
                     <td>{val.email}</td>
                     <td>{val.role}</td>
+                    <td>{val.phone}</td>
+                    <td>{val.lock}</td>
                     <td>
                       <button className="button"
                         onClick={() =>
