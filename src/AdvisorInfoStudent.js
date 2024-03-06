@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function AdvisorInfo() {
+export default function AdvisorInfoStudent() {
   const navigate = useNavigate();
   const [teachers, setTeachers] = useState([]);
   const [advisor, setAdvisor] = useState({});

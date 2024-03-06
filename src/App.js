@@ -9,13 +9,13 @@ import UpdateRoles from "./UpdateRoles";
 import UpdateLock from "./UpdateLock";
 import UserLogin from "./Userlogin";
 import EditUserProfile from "./EditUserProfile";
-import AdvisorInfo from "./AdvisorInfo";
 import RequestedTeachers from "./RequestedTeachers";
 import TeacherDashboard from "./TeacherDashboard";
 import EditUserProfileTeacher from "./EditUserProfileTeacher";
 import AdvisorInfoTeacher from "./AdvisorInfoTeacher";
 import EnrolledStudents from "./EnrolledStudents";
 import Redirect from "./Redirect";
+import AdvisorInfoStudent from "./AdvisorInfoStudent";
 
 function App() {
   
@@ -27,7 +27,7 @@ function App() {
         <Route path="/userlogin" element={<UserLogin />} />
         <Route path="/edituserprofile" element={<EditUserProfile />} />
         <Route path="/edituserprofileteacher" element={<EditUserProfileTeacher />} />
-        <Route path="/advisorinfo" element={<AdvisorInfo />} />
+        <Route path="/advisorinfo" element={<AdvisorInfoStudent />} />
         <Route path="/advisorinfoteacher" element={<AdvisorInfoTeacher />} />
         <Route path="/requestedteachers" element={<RequestedTeachers />} />
         <Route path="/teacherdashboard" element={<TeacherDashboard />} />
