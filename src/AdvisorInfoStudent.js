@@ -11,11 +11,13 @@ export default function AdvisorInfoStudent() {
 
   const requestTeacher = (e) => {
     const token = Cookies.get("token");
+    const id = Cookies.get("id");
     const email = Cookies.get("email");
+    
     console.log(e.target.value);
     axios
       .post(
-        `http://localhost:8080/api/v1/students/${email}/available-teachers/${email}`,
+        `http://localhost:8080/api/v1/students/${id}/available-teachers`,
         {
           id: 1,
           emailTeacher: e.target.value,
@@ -37,9 +39,9 @@ export default function AdvisorInfoStudent() {
 
   const findAdvisor  = () => {
     const token = Cookies.get("token");
-    const email = Cookies.get('email');
+    const id = Cookies.get('id');
     axios
-      .get(`http://localhost:8080/api/v1/students/${email}/advisor`, {
+      .get(`http://localhost:8080/api/v1/students/${id}/advisor`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -54,9 +56,9 @@ export default function AdvisorInfoStudent() {
 
   const loadInfo = () => {
     const token = Cookies.get("token");
-    const email = Cookies.get('email');
+    const id = Cookies.get('id');
     axios
-      .get(`http://localhost:8080/api/v1/students/${email}/available-teachers`, {
+      .get(`http://localhost:8080/api/v1/students/${id}/available-teachers`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {

@@ -13,17 +13,16 @@ export default function EditUserProfile() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const token = Cookies.get("token");
-    const email = Cookies.get("email");
+    const id = Cookies.get("id");
 
     const formData = new FormData(e.target);
     const payload = Object.fromEntries(formData);
 
     axios
       .put(
-        `http://localhost:8080/api/v1/students/${email}`,
+        `http://localhost:8080/api/v1/students/${id}`,
         {
           name: payload.name,
-          email: email,
           phone: payload.phone,
           dept: payload.dept,
           studentID: payload.studentID,

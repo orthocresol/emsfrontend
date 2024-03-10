@@ -9,11 +9,11 @@ export default function AdvisorInfoTeacher() {
 
   const acceptRequest = (e) => {
     const token = Cookies.get("token");
-    const email = Cookies.get("email");
+    const id = Cookies.get("id");
     console.log(e.target.value);
     axios
       .post(
-        `http://localhost:8080/api/v1/teachers/${email}/requested-students/${email}`,
+        `http://localhost:8080/api/v1/teachers/${id}/requested-students`,
         {
           id: 1,
           emailTeacher: email,
@@ -29,11 +29,13 @@ export default function AdvisorInfoTeacher() {
 
   const rejectRequest = (e) => {
     const token = Cookies.get("token");
+    const id = Cookies.get("id");
     const email = Cookies.get("email");
+    
     console.log(e.target.value);
     axios
       .put(
-        `http://localhost:8080/api/v1/teachers/${email}/requested-students/${email}`,
+        `http://localhost:8080/api/v1/teachers/${id}/requested-students`,
         {
           id: 1,
           emailTeacher: email,
@@ -55,10 +57,10 @@ export default function AdvisorInfoTeacher() {
 
   const loadInfo = () => {
     const token = Cookies.get("token");
-    const email = Cookies.get("email");
+    const id = Cookies.get("id");
     axios
       .get(
-        `http://localhost:8080/api/v1/teachers/${email}/requested-students`,
+        `http://localhost:8080/api/v1/teachers/${id}/requested-students`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

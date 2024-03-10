@@ -9,10 +9,10 @@ export default function RequestedTeachers() {
     document.title = "Requested Teachers"
 
     const token = Cookies.get("token");
-    const email = Cookies.get("email");
+    const id = Cookies.get("id");
 
     axios
-      .get(`http://localhost:8080/api/v1/students/${email}/requested-teachers`, {
+      .get(`http://localhost:8080/api/v1/students/${id}/requested-teachers`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {

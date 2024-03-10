@@ -12,11 +12,11 @@ export default function Redirect () {
     });
 
     const loadInfo = () => {
-        const email = Cookies.get('email')
+        const id = Cookies.get('id')
         const token = Cookies.get('token')
 
         axios
-        .get(`http://localhost:8080/api/v1/users/${email}`, {
+        .get(`http://localhost:8080/api/v1/users/${id}`, {
             headers: { Authorization: `Bearer ${token}` },})
         .then((res) => {
           if(res.data.role === "STUDENT") navigate('/userdashboard', {replace : true})

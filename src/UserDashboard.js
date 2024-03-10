@@ -12,12 +12,12 @@ export default function UserDashboard() {
   }, []);
 
   const loadInfo = () => {
-    const email = Cookies.get("email");
+    const id = Cookies.get("id");
     const token = Cookies.get("token");
 
-    console.log(email);
+    console.log(id);
     axios
-      .get(`http://localhost:8080/api/v1/students/${email}`, {
+      .get(`http://localhost:8080/api/v1/students/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {

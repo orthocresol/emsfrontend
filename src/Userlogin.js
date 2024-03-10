@@ -25,8 +25,12 @@ export default function UserLogin () {
         .then((res) => {
           console.log(res.status, res.data.token);
           const token = res.data.token;
+          const id = res.data.id;
+          const email = payload.email;
           Cookies.set('token', token, {expires : 7, secure:  false})
-          Cookies.set('email', payload.email, {expires : 7, secure: false})
+          Cookies.set('id', id, {expires : 7, secure: false})
+          Cookies.set('email', email, {expires : 7, secure: false})
+          
           if(res.status === 200) navigate('/redirect', {replace : true})
         })
         .catch((error) => console.log(error));
