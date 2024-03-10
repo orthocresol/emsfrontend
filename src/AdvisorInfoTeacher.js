@@ -10,6 +10,7 @@ export default function AdvisorInfoTeacher() {
   const acceptRequest = (e) => {
     const token = Cookies.get("token");
     const id = Cookies.get("id");
+    const email = Cookies.get("email");
     console.log(e.target.value);
     axios
       .post(
@@ -76,7 +77,6 @@ export default function AdvisorInfoTeacher() {
       <table className="center-table">
         <thead>
           <tr>
-            <th>ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
@@ -92,7 +92,6 @@ export default function AdvisorInfoTeacher() {
           {requestedStudents.map((val) => {
             return (
               <tr>
-                <td>{val.id}</td>
                 <td>{val.name}</td>
                 <td>{val.email}</td>
                 <td>{val.phone}</td>

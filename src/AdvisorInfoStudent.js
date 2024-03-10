@@ -74,7 +74,6 @@ export default function AdvisorInfoStudent() {
       <table className="center-table">
         <thead>
           <tr>
-            <th>ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
@@ -89,7 +88,6 @@ export default function AdvisorInfoStudent() {
           {teachers.map((val) => {
             return (
               <tr>
-                <td>{val.id}</td>
                 <td>{val.name}</td>
                 <td>{val.email}</td>
                 <td>{val.phone}</td>

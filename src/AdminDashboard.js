@@ -57,7 +57,6 @@ export default function AdminDashboard() {
           <table className="center-table">
             <thead>
               <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>
@@ -70,7 +69,6 @@ export default function AdminDashboard() {
               {users.map((val) => {
                 return (
                   <tr key={val.id}>
-                    <td>{val.id}</td>
                     <td>{val.name}</td>
                     <td>{val.email}</td>
                     <td>{val.role}</td>
@@ -107,7 +105,6 @@ export default function AdminDashboard() {
           <table className="center-table">
             <thead>
               <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
@@ -123,7 +120,6 @@ export default function AdminDashboard() {
               {students.map((val) => {
                 return (
                   <tr>
-                    <td>{val.id}</td>
                     <td>{val.name}</td>
                     <td>{val.email}</td>
                     <td>{val.phone}</td>
@@ -164,7 +160,6 @@ export default function AdminDashboard() {
           <table className="center-table">
             <thead>
               <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
@@ -179,7 +174,6 @@ export default function AdminDashboard() {
               {teachers.map((val) => {
                 return (
                   <tr>
-                    <td>{val.id}</td>
                     <td>{val.name}</td>
                     <td>{val.email}</td>
                     <td>{val.phone}</td>
@@ -210,8 +204,6 @@ export default function AdminDashboard() {
           </table>
         </div>
       )}
-
-      
     </>
   );
 }

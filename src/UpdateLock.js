@@ -46,8 +46,7 @@ export default function UpdateLock() {
     <>
       <h1>Update Lock</h1>
       <p>Name: {location.state.name}</p> <br/>
-      <p>Name: {location.state.email}</p> <br/>
-      <p>Name: {location.state.id}</p> <br />
+      <p>Email: {location.state.email}</p> <br/>
 
       <button className="button" onClick={lockUser}>Lock User</button>
       <button className="button" onClick={unlockUser}>Unlock User</button>

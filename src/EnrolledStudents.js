@@ -30,7 +30,6 @@ export default function EnrolledStudents() {
       <table className="center-table">
         <thead>
           <tr>
-            <th>ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
@@ -44,7 +43,6 @@ export default function EnrolledStudents() {
           {enrolledStudents.map((val) => {
             return (
               <tr>
-                <td>{val.id}</td>
                 <td>{val.name}</td>
                 <td>{val.email}</td>
                 <td>{val.phone}</td>

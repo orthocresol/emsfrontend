@@ -14,10 +14,11 @@ export default function TeacherDashboard() {
   const loadInfo = () => {
     const email = Cookies.get("email");
     const token = Cookies.get("token");
+    const id = Cookies.get("id");
 
     console.log(email);
     axios
-      .get(`http://localhost:8080/api/v1/teachers/${email}`, {
+      .get(`http://localhost:8080/api/v1/teachers/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {

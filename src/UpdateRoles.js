@@ -52,8 +52,7 @@ export default function UpdateRoles() {
     <>
       <h1>Update Roles</h1>
       <p>Name: {location.state.name}</p> <br />
-      <p>Name: {location.state.email}</p> <br />
-      <p>Name: {location.state.id}</p> <br />
+      <p>Email: {location.state.email}</p> <br />
       <button className="button" onClick={updateRoleTeacher}>Update to Teacher Role</button>
       <button className="button" onClick={updateRoleStudent}>Update to Student Role</button>
     </>
